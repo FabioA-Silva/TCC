@@ -1,0 +1,26 @@
+.nav-link i {
+ 
+  padding-right: 15px;
+  font-size: 20px;
+  
+}
+
+footer #sair::before {
+
+  background-color: darkgoldenrod;
+  color: black;
+
+}
+
+@media (max-width: 768px) {
+  .grafico-container1 {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .grafico {
+    width: 100%;
+    height: auto;
+  }
+}
+
+  

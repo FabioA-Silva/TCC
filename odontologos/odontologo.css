@@ -1,0 +1,56 @@
+/* Adicione estas linhas para alinhar a tabela à direita e adicione margem à direita */
+.table.table-light {
+  margin-left: auto;
+}
+
+.fixed-sidebar {
+  position: static; 
+  height: auto;
+}
+
+.conteudo {
+  margin-left: 0;
+}
+
+.a {
+  margin-left: 0;
+}
+
+.b {
+  margin-left: 0;
+}
+
+@media (min-width:578px) {
+
+  .h-sm-100 {
+    height: auto;
+    
+  }
+
+}
+
+@media (max-width: 768px) {
+    .fixed-sidebar {
+      position: static; 
+      height: auto;
+    }
+
+    .table.table-light {
+      margin-left: auto;
+  }
+  
+    .conteudo {
+      margin-left: 0;
+    }
+  
+    .a {
+      margin-left: 0;
+    }
+  
+    .b {
+      margin-left: 0;
+    }
+}
+
+
+
