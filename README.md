@@ -1,6 +1,6 @@
 # TCC
 Equipe:
-- Gabriel Balancieri Perasolli  
+- Gabriel Balancieri Perassoli  
 - Fábio Augusto Gomes Barbosa da Silva
 - Norbis Yanina Arvelo Martinez
 
