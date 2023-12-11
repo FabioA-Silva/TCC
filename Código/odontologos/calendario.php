@@ -1,15 +1,15 @@
 <?php
 
-include('../conexao.php');
-include('menuodontologos.php');
-include ('../verifica_sessao.php');
+    include('../conexao.php');
+    include('menuodontologos.php');
+    include ('../verifica_sessao.php');
 
-if (!isset($_SESSION['usuario'])) {
-    header("Location: index.php");
-    exit;
-}
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: index.php");
+        exit;
+    }
 
-$nomeDoUsuario = $_SESSION['usuario'];
+    $nomeDoUsuario = $_SESSION['usuario'];
 
 ?>
 
@@ -17,25 +17,16 @@ $nomeDoUsuario = $_SESSION['usuario'];
 <html lang="pt">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <script src="js/moment-with-locales.js"></script>
-    <!-- Bootstrap fullcalendar 5.10.1 -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
-
-
-
-
+    <title>Calendário</title>
 </head>
 
 <body>
@@ -87,10 +78,10 @@ $nomeDoUsuario = $_SESSION['usuario'];
 
                             $eventos = [];
 
-                            $pesquisa = mysqli_query($conexao, "SELECT * FROM consultas C 
-                                INNER JOIN pacientes p  ON p.idpaciente = c.idpaciente
-                                INNER JOIN procedimento_clinico pc  ON pc.idprocedimento =  c.idprocedimento
-                                INNER JOIN odontologos o ON  c.idodontologo = o.idodontologo");
+                            $pesquisa = mysqli_query($conexao, "SELECT * FROM consultas AS c
+                            INNER JOIN pacientes AS p ON p.idpaciente = c.idpaciente
+                            INNER JOIN procedimento_clinico AS pc ON pc.idprocedimento = c.idprocedimento
+                            INNER JOIN odontologos AS o ON c.idodontologo = o.idodontologo");                        
 
                             $row = mysqli_num_rows($pesquisa);
 
@@ -225,7 +216,6 @@ $nomeDoUsuario = $_SESSION['usuario'];
         </main>
     </div>
     <script type="text/javascript" src="js/events.js"></script>
-    <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous">
     </script>

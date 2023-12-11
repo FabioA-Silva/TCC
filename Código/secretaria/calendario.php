@@ -1,6 +1,14 @@
 <?php
-include('../conexao.php');
-include('menusecretaria.php');
+
+    include('../conexao.php');
+    include('menusecretaria.php');
+    include ('../verifica_sessao.php');
+
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: index.php");
+        exit;
+    }
+
 ?>
 
 <!doctype html>
@@ -11,9 +19,9 @@ include('menusecretaria.php');
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="js/moment-with-locales.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
@@ -60,7 +68,7 @@ include('menusecretaria.php');
                                             </div>
                                             <br />
 
-                                            <label>Procedimento Clinico</label>
+                                            <label>Procedimento Clínico</label>
                                             <select class="form-select form-select-sm" name="idprocedimento"
                                                 aria-label=".form-select-sm example">
                                                 <option selected>Selecione o Procedimento a Realizar</option>
@@ -162,8 +170,6 @@ include('menusecretaria.php');
                                                     }
                                                     ?>
                                                 </select>
-
-
                                             </div>
                                             <br />
 
@@ -188,9 +194,7 @@ include('menusecretaria.php');
                                                 aria-label=".form-select-sm example" onchange="updateColor2(this)">
                                                 <option selected>Selecione o Nome do Odontólogo</option>
                                                 <?php
-                                                    $mysqli = new mysqli('localhost', 'root', '', 'tcc');
-
-                                                    $query = $mysqli->query("SELECT * FROM odontologos");
+                                                    $query = $conexao->query("SELECT * FROM odontologos");
 
                                                     while ($odontologo = mysqli_fetch_array($query)) {
                                                         echo '<option value="' . $odontologo['idodontologo'] . '" data-color="' . $odontologo['color'] . '">' . $odontologo['nome_odontologo'] . '</option>';
@@ -451,6 +455,8 @@ include('menusecretaria.php');
                                 return hours + ':' + minutes;
                             }
                         });
+
+                        
                         </script>
 
                     </div>

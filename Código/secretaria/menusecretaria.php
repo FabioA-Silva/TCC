@@ -18,14 +18,13 @@
 <html lang="pt">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="odontologo.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="secretaria.css" media="screen" />
     <link rel=icon href='../dente.png' sizes="50x50" type="image/png">
 
     <style>
@@ -33,7 +32,7 @@
         #sair {
             margin-bottom: 20px;
         }
-
+        
         #menu li {
             display: flex;
             align-items: center;
@@ -51,6 +50,7 @@
 </head>
 
 <body>
+
     </nav>
     <div class="container-fluid overflow-hidden">
         <div class="row vh-100 overflow-auto">
@@ -58,44 +58,52 @@
                 <div
                     class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 ">
                     <br>
-
                     <span class="fs-5"><i class="fa-sharp fa-solid fa-tooth fa-beat" style="color:white"></i> <span
-                            class="d-none d-sm-inline " style="color:Darkgoldenrod ;">Dental System</span></span>
+                            class="d-none d-sm-inline  " style="color:Darkgoldenrod;">Dental System</span></span>
                     <br>
                     <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start"
                         id="menu">
-
                         <li class="nav-item">
-                            <a href="homeodontologos.php" class="nav-link px-sm-0 px-2">
-                                <i class="fs-5 bi-house" style="color:Darkgoldenrod; padding-right: 15px;"></i><span
+                            <a href="homesecretaria.php" class="nav-link px-sm-0 px-2 ">
+                                <i class="fs-5 bi-house" style="color:Darkgoldenrod"></i><span
                                     class="sm-1 d-none d-sm-inline text-white ">&nbsp;&nbsp;Home</span>
                             </a>
                         </li>
                         <li>
-                            <a href="dashboard.php" class="nav-link px-sm-0 px-2">
-                                <i class="fs-5 bi-speedometer2" style="color:Darkgoldenrod;padding-right: 15px;"></i><span
-                                    class="ms-1 d-none d-sm-inline text-white ">&nbsp;Dashboard</span> </a>
-                        </li>
-                        <li>
                             <a href="calendario.php" class="nav-link px-sm-0 px-2">
-                                <i class="bi bi-calendar-week"
-                                    style="color:Darkgoldenrod;padding-right: 15px;"></i><span
-                                    class="ms-1 d-none d-sm-inline text-white">&nbsp;&nbsp;Calendário</span></a>
+                                <i class="bi bi-calendar-week" style="color:Darkgoldenrod"></i><span
+                                    class="ms-1 d-none d-sm-inline text-white">&nbsp;Agendar Consultas</span></a>
                         </li>
                         <li>
-                            <a href="lista_pacientesodont.php" class="nav-link px-sm-0 px-2">
-                                <i class="fs-5 bi-people" style="color:Darkgoldenrod; padding-right: 15px;"></i><span
+                            <a href="pacientes.php" class="nav-link px-sm-0 px-2">
+                                <i class="fs-5 bi-people" style="color:Darkgoldenrod"></i><span
                                     class="ms-1 d-none d-sm-inline text-white">&nbsp;Pacientes</span></a>
                         </li>
                         <li>
-                            <a href="historial_consultasodont.php" class="nav-link px-sm-0 px-2"
-                                style="color:Darkgoldenrod; padding-right: 15px;">
-                                <i class="bi bi-list-columns-reverse" style="font-size: 20px; padding-right: 15px;"></i>
-                                <span class="ms-1 d-none d-sm-inline text-white">Lista Consultas</span></a>
+                            <a href="lista_consulta.php" class="nav-link px-sm-0 px-2">
+                                <i class="bi bi-list-columns-reverse" style="color:Darkgoldenrod"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Lista de Consultas</span></a>
+                        </li>
+
+                        <li>
+                            <a href="lista_odontologos.php" class="nav-link px-sm-0 px-1">
+                                <i class="fa-solid fa-user-doctor" style="color:Darkgoldenrod"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white ">&nbsp;&nbsp;Odontólogos</span></a>
+                        </li>
+
+                        <li>
+                            <a href="pagamento.php" class="nav-link px-sm-0 px-1">
+                                <i class="bi bi-cash-coin" style="color:Darkgoldenrod"></i><span
+                                    class="ms-1 d-none d-sm-inline text-white">&nbsp;Pagamentos</span></a>
+                        </li>
+
+                        <li>
+                            <a href="orcamentos.php" class="nav-link px-sm-0 px-1">
+                                <i class="bi bi-calculator" style="color:Darkgoldenrod"></i> <span
+                                    class="ms-1 d-none d-sm-inline text-white">Orçamentos</span></a>
                         </li>
                     </ul>
                     <hr>
-
                     <footer>
                         <div class="d-flex align-items-center">
                             <button class="btn btn-outline-warning" id="sair"><a href="../sair.php"
@@ -105,7 +113,6 @@
                             </h6>
                         </div>
                     </footer>
-
                 </div>
             </div>
 

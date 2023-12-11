@@ -1,4 +1,5 @@
 <?php
+
     include '../conexao.php';
 
     $id = $id;
@@ -22,6 +23,7 @@
         $title = $dados['title'];
         $data = $dados['data_consulta'];
     }
+
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +43,14 @@
                 aria-label=".form-select-sm example">
                 <option disabled selected>Selecione o Nome do Paciente</option>
                 <?php
-                $query = $conexao->query("SELECT * FROM pacientes");
+                
+                    $query = $conexao->query("SELECT * FROM pacientes");
 
-                while ($paciente = mysqli_fetch_array($query)) {
-                    $selected = ($paciente['idpaciente'] == $dados['idpaciente']) ? 'selected' : '';
-                    echo '<option value="' . $paciente['idpaciente'] . '" ' . $selected . '>' . $paciente['nome_paciente'] . ' </option>';
-                }
+                    while ($paciente = mysqli_fetch_array($query)) {
+                        $selected = ($paciente['idpaciente'] == $dados['idpaciente']) ? 'selected' : '';
+                        echo '<option value="' . $paciente['idpaciente'] . '" ' . $selected . '>' . $paciente['nome_paciente'] . ' </option>';
+                    }
+
                 ?>
             </select>
             <br />
@@ -56,12 +60,14 @@
                 aria-label=".form-select-sm example">
                 <option disabled selected>Selecione o Procedimento a Realizar</option>
                 <?php
-                $query = $conexao->query("SELECT * FROM procedimento_clinico");
 
-                while ($procedimento = mysqli_fetch_array($query)) {
-                    $selected = ($procedimento['idprocedimento'] == $dados['idprocedimento']) ? 'selected' : '';
-                    echo '<option value="' . $procedimento['idprocedimento'] . '" ' . $selected . '>' . $procedimento['nome_procedimento'] . '</option>';
-                }
+                    $query = $conexao->query("SELECT * FROM procedimento_clinico");
+
+                    while ($procedimento = mysqli_fetch_array($query)) {
+                        $selected = ($procedimento['idprocedimento'] == $dados['idprocedimento']) ? 'selected' : '';
+                        echo '<option value="' . $procedimento['idprocedimento'] . '" ' . $selected . '>' . $procedimento['nome_procedimento'] . '</option>';
+                    }
+
                 ?>
             </select>
             <br />
@@ -71,21 +77,25 @@
                 aria-label=".form-select-sm example" onchange="updateColor2(this)">
                 <option disabled selected>Selecione o Nome do Odontólogo</option>
                 <?php
-                $query = $conexao->query("SELECT * FROM odontologos");
 
-                while ($odontologo = mysqli_fetch_array($query)) {
-                    $selected = ($odontologo['idodontologo'] == $dados['idodontologo']) ? 'selected' : '';
-                    echo '<option value="' . $odontologo['idodontologo'] . '" data-color="' . $odontologo['color'] . '" ' . $selected . '>' . $odontologo['nome_odontologo'] . '</option>';
-                }
+                    $query = $conexao->query("SELECT * FROM odontologos");
+
+                    while ($odontologo = mysqli_fetch_array($query)) {
+                        $selected = ($odontologo['idodontologo'] == $dados['idodontologo']) ? 'selected' : '';
+                        echo '<option value="' . $odontologo['idodontologo'] . '" data-color="' . $odontologo['color'] . '" ' . $selected . '>' . $odontologo['nome_odontologo'] . '</option>';
+                    }
+
                 ?>
             </select>
             <input type="hidden" name="cor_evento" id="cor_evento2" value="#ffffff">
             <br />
 
             <?php
-            date_default_timezone_set("America/Sao_Paulo");
-            $today = date("Y-m-d");
-            $hora = date('h:i:s A');
+
+                date_default_timezone_set("America/Sao_Paulo");
+                $today = date("Y-m-d");
+                $hora = date('h:i:s A');
+
             ?>
 
             <label>Data da Consulta</label>
@@ -96,20 +106,22 @@
             <label>Hora da Consulta</label>
             <select class="form-select form-select-sm" name="hora" id="hora" required>
                 <?php
-                if (!empty($dados['hora'])) {
-                    $formattedHora = date('H:i', strtotime($dados['hora']));
-                    echo "<option value='$formattedHora'>$formattedHora</option>";
-                }
 
-                for ($i = 0; $i < 24; $i++) {
-                    for ($j = 0; $j < 60; $j += 30) {
-                        $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-                        $minute = str_pad($j, 2, '0', STR_PAD_LEFT);
-                        $time = "$hour:$minute";
-                        $selected = ($time == $formattedHora) ? 'selected' : '';
-                        echo "<option value='$time' $selected>$time</option>";
+                    if (!empty($dados['hora'])) {
+                        $formattedHora = date('H:i', strtotime($dados['hora']));
+                        echo "<option value='$formattedHora'>$formattedHora</option>";
                     }
-                }
+
+                    for ($i = 0; $i < 24; $i++) {
+                        for ($j = 0; $j < 60; $j += 30) {
+                            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+                            $minute = str_pad($j, 2, '0', STR_PAD_LEFT);
+                            $time = "$hour:$minute";
+                            $selected = ($time == $formattedHora) ? 'selected' : '';
+                            echo "<option value='$time' $selected>$time</option>";
+                        }
+                    }
+                    
                 ?>
             </select>
             <br />

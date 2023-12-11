@@ -1,7 +1,9 @@
 <?php
-require('../conexao.php');
-require('menusecretaria.php');
-$nome = $_SESSION['usuario'];
+
+  require('../conexao.php');
+  require('menusecretaria.php');
+  $nome = $_SESSION['usuario'];
+
 
 ?>
 
@@ -21,18 +23,20 @@ $nome = $_SESSION['usuario'];
     <main class="row overflow">
 
       <?php
-      date_default_timezone_set("America/Sao_Paulo");
-      date("d/m/Y");
-      $data = date('l');
-      $semana = array(
-        'Sunday' => 'Domingo',
-        'Monday' => 'Segunda-Feira',
-        'Tuesday' => 'Terca-Feira',
-        'Wednesday' => 'Quarta-Feira',
-        'Thursday' => 'Quinta-Feira',
-        'Friday' => 'Sexta-Feira',
-        'Saturday' => 'Sábado'
-      );
+
+        date_default_timezone_set("America/Sao_Paulo");
+        date("d/m/Y");
+        $data = date('l');
+        $semana = array(
+          'Sunday' => 'Domingo',
+          'Monday' => 'Segunda-Feira',
+          'Tuesday' => 'Terca-Feira',
+          'Wednesday' => 'Quarta-Feira',
+          'Thursday' => 'Quinta-Feira',
+          'Friday' => 'Sexta-Feira',
+          'Saturday' => 'Sábado'
+        );
+        
       ?>
       <marquee style="font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-top:15px"><?php echo "Hoje é " . $semana[$data] . "," . date(" d/m/Y H:i a") . "," . "  " . "Bem-vindo(a) $nome" . " " ?></marquee>
       <img src="../secretaria/IMG/logosistema.png" class="img-fluid" alt="..." style="width: 600px; margin:auto; ">

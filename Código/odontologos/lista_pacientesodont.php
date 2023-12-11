@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3y-d65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="odontologo.css">    
-    <title>Lista de Consultas</title>
+    <title>Pacientes</title>
 
     <style>
 
@@ -68,57 +68,57 @@
                             <tbody>
 
                             <?php
-                            include '../conexao.php';
+                                include '../conexao.php';
 
-                            function calcularIdade($dataNascimento)
-                            {
-                                $dataNascimento = new DateTime($dataNascimento);
-                                $hoje = new DateTime();
-                                $idade = $hoje->diff($dataNascimento);
-
-                                if ($idade->y > 110) {
-                                    return 'Idade não factível!';
-                                } else {
-                                    return $idade->y;
-                                }
-                            }
-
-                            if (!empty($_GET['search'])) {
-
-                                $data = $_GET['search'];
-                                $pesquisa = "SELECT DISTINCT p.*, o.nome_odontologo
-                                FROM pacientes p
-                                INNER JOIN consultas c ON p.idpaciente = c.idpaciente
-                                INNER JOIN odontologos o ON o.idodontologo = c.idodontologo
-                                WHERE o.nome_odontologo = '$nome' AND p.nome_paciente LIKE '%$data%'
-                                ORDER BY p.idpaciente DESC";
-                            } 
-                            else {
-                                $pesquisa = "SELECT DISTINCT p.*, o.nome_odontologo
-                                FROM pacientes p
-                                INNER JOIN consultas c ON p.idpaciente = c.idpaciente
-                                INNER JOIN odontologos o ON o.idodontologo = c.idodontologo
-                                WHERE o.nome_odontologo = '$nome'";
-
-                            }
-                              
-                            $result = $conexao->query($pesquisa);
-
-                            if ($result)
-                            {
-                                while ($registro = $result->fetch_array()) 
+                                function calcularIdade($dataNascimento)
                                 {
-                                    $id = $registro['idpaciente'];
-                                    $dataNascimento = $registro['data_nascimento'];
+                                    $dataNascimento = new DateTime($dataNascimento);
+                                    $hoje = new DateTime();
+                                    $idade = $hoje->diff($dataNascimento);
 
-                                    echo '<tr>';
-                                    echo '<td><a class="patient-link" href="#" data-bs-toggle="modal" data-bs-target="#modal' . $id . '">' . $registro['nome_paciente'] . '</a></td>';
-                                    echo '<td>' . $registro['sexo'] . '</td>';
-                                    echo '<td>' . calcularIdade($dataNascimento) . '</td>';
-                                    echo '<td>' . $registro['telefone'] . '</td>';
-                                    echo '</tr>';
+                                    if ($idade->y > 110) {
+                                        return 'Idade não factível!';
+                                    } else {
+                                        return $idade->y;
+                                    }
                                 }
-                            }
+
+                                if (!empty($_GET['search'])) {
+
+                                    $data = $_GET['search'];
+                                    $pesquisa = "SELECT DISTINCT p.*, o.nome_odontologo
+                                    FROM pacientes p
+                                    INNER JOIN consultas c ON p.idpaciente = c.idpaciente
+                                    INNER JOIN odontologos o ON o.idodontologo = c.idodontologo
+                                    WHERE o.nome_odontologo = '$nome' AND p.nome_paciente LIKE '%$data%'
+                                    ORDER BY p.idpaciente DESC";
+                                } 
+                                else {
+                                    $pesquisa = "SELECT DISTINCT p.*, o.nome_odontologo
+                                    FROM pacientes p
+                                    INNER JOIN consultas c ON p.idpaciente = c.idpaciente
+                                    INNER JOIN odontologos o ON o.idodontologo = c.idodontologo
+                                    WHERE o.nome_odontologo = '$nome'";
+
+                                }
+                                
+                                $result = $conexao->query($pesquisa);
+
+                                if ($result)
+                                {
+                                    while ($registro = $result->fetch_array()) 
+                                    {
+                                        $id = $registro['idpaciente'];
+                                        $dataNascimento = $registro['data_nascimento'];
+
+                                        echo '<tr>';
+                                        echo '<td><a class="patient-link" href="#" data-bs-toggle="modal" data-bs-target="#modal' . $id . '">' . $registro['nome_paciente'] . '</a></td>';
+                                        echo '<td>' . $registro['sexo'] . '</td>';
+                                        echo '<td>' . calcularIdade($dataNascimento) . '</td>';
+                                        echo '<td>' . $registro['telefone'] . '</td>';
+                                        echo '</tr>';
+                                    }
+                                }
                             
                             ?>
                         </tbody>
@@ -126,66 +126,66 @@
 
                             <?php
 
-                            $result = $conexao->query($pesquisa);
+                                $result = $conexao->query($pesquisa);
 
-                            if ($result) 
-                            {
-                                while ($registro2 = $result->fetch_array())
+                                if ($result) 
                                 {
-                                    $id = $registro2['idpaciente'];
+                                    while ($registro2 = $result->fetch_array())
+                                    {
+                                        $id = $registro2['idpaciente'];
 
-                                    echo '<div class="modal fade" id="modal' . $id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel' . $id . '" aria-hidden="true">';
-                                    echo '    <div class="modal-dialog">';
-                                    echo '        <div class="modal-content">';
-                                    echo '            <div class="modal-header">';
-                                    echo '                <h5 class="modal-title" id="modalLabel' . $id . '">Consultas do(a) '. $registro2['nome_paciente'] . '</h5>';
-                                    echo '                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                                    echo '            </div>';
-                                    echo '            <div class="modal-body">';
+                                        echo '<div class="modal fade" id="modal' . $id . '" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel' . $id . '" aria-hidden="true">';
+                                        echo '    <div class="modal-dialog">';
+                                        echo '        <div class="modal-content">';
+                                        echo '            <div class="modal-header">';
+                                        echo '                <h5 class="modal-title" id="modalLabel' . $id . '">Consultas do(a) '. $registro2['nome_paciente'] . '</h5>';
+                                        echo '                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                                        echo '            </div>';
+                                        echo '            <div class="modal-body">';
 
-                                    echo '<table class="table table-light">';
-                                    echo '<thead>';
-                                    echo '<tr>';
-                                    echo '<th scope="col">Descrição</th>';
-                                    echo '<th scope="col">Odontólogo</th>';
-                                    echo '<th scope="col">Procedimento</th>';
-                                    echo '<th scope="col">Data</th>';
-                                    echo '</tr>';
-                                    echo '</thead>';
-                                    echo '<tbody>';
-
-                                    // Consultas do paciente
-                                    $queryConsultas = "SELECT c.*, p.nome_procedimento FROM consultas c
-                                    INNER JOIN procedimento_clinico p ON c.idprocedimento = p.idprocedimento
-                                    WHERE c.idpaciente = $id";
-
-                                    $resultConsultas = mysqli_query($conexao, $queryConsultas);
-
-                                    while ($consulta = mysqli_fetch_array($resultConsultas)) {
-
-                                        $data_consulta = $consulta["data_consulta"];
-                                        $data_consulta = implode("/",array_reverse(explode("-",$data_consulta)));
-
+                                        echo '<table class="table table-light">';
+                                        echo '<thead>';
                                         echo '<tr>';
-                                        echo '<td>' . $consulta['descripcao'] . '</td>';
-                                        echo '<td>' . $registro2['nome_odontologo'] . '</td>';
-                                        echo '<td>' . $consulta['nome_procedimento'] . '</td>';
-                                        echo '<td>' . $data_consulta . '</td>';
+                                        echo '<th scope="col">Descrição</th>';
+                                        echo '<th scope="col">Odontólogo</th>';
+                                        echo '<th scope="col">Procedimento</th>';
+                                        echo '<th scope="col">Data</th>';
                                         echo '</tr>';
-                                    }
-                                    
-                                    echo '</tbody>';
-                                    echo '</table>';
+                                        echo '</thead>';
+                                        echo '<tbody>';
 
-                                    echo '            </div>';
-                                    echo '            <div class="modal-footer">';
-                                    echo '                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>';
-                                    echo '            </div>';
-                                    echo '        </div>';
-                                    echo '    </div>';
-                                    echo '</div>';
+                                        // Consultas do paciente
+                                        $queryConsultas = "SELECT c.*, p.nome_procedimento FROM consultas c
+                                        INNER JOIN procedimento_clinico p ON c.idprocedimento = p.idprocedimento
+                                        WHERE c.idpaciente = $id";
+
+                                        $resultConsultas = mysqli_query($conexao, $queryConsultas);
+
+                                        while ($consulta = mysqli_fetch_array($resultConsultas)) {
+
+                                            $data_consulta = $consulta["data_consulta"];
+                                            $data_consulta = implode("/",array_reverse(explode("-",$data_consulta)));
+
+                                            echo '<tr>';
+                                            echo '<td>' . $consulta['descripcao'] . '</td>';
+                                            echo '<td>' . $registro2['nome_odontologo'] . '</td>';
+                                            echo '<td>' . $consulta['nome_procedimento'] . '</td>';
+                                            echo '<td>' . $data_consulta . '</td>';
+                                            echo '</tr>';
+                                        }
+                                        
+                                        echo '</tbody>';
+                                        echo '</table>';
+
+                                        echo '            </div>';
+                                        echo '            <div class="modal-footer">';
+                                        echo '                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>';
+                                        echo '            </div>';
+                                        echo '        </div>';
+                                        echo '    </div>';
+                                        echo '</div>';
+                                    }
                                 }
-                            }
                     
                             
                             ?>

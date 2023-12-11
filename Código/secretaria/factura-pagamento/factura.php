@@ -1,31 +1,60 @@
-﻿
+﻿<?php
 
-<?php
-	/* Connect To Database*/
-	require_once ("../../conexao.php");
+	require_once("../../conexao.php");
 	
 	$query_perfil=mysqli_query($conexao,"SELECT * from perfil where id=1");
 	$rw=mysqli_fetch_assoc($query_perfil);
 	$sql=mysqli_query($conexao, "SELECT LAST_INSERT_ID(id) as last from facturas order by id desc limit 0,1 ");
 	$rws=mysqli_fetch_array($sql);
 	$numero = $rws['last'] + 1;
+
 ?>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-     <title>Factura </title>
-    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <title>Fatura</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE CSS -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
     <link href="assets/css/style.css" rel="stylesheet" />
 
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css" rel="stylesheet" />
+
+	<style>
+
+		.voltar-btn {
+			position: absolute;
+			top: 20px;
+			left: 30px;
+			text-decoration: none;
+			color: white;
+			padding: 10px 20px;
+			border: 2px solid red;
+			border-radius: 4px;
+			background-color: red;
+			transition: transform 0.3s, background-color 0.3s;
+		}
+
+		.voltar-btn:hover {
+			background-color: white;
+			color: red;
+			transform: scale(1.1);
+		}
+
+	</style>
+
 </head>
 <body >
-    <div class="container outer-section" >
-        
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<a href="../pagamento.php" class="voltar-btn">← Voltar</a>
+		</div>
+	</div>
+	
+	<div class="container outer-section">
+		
+		
        <form class="form-horizontal" role="form" id="datos_presupuesto" method="post">
         <div id="print-area">
                   <div class="row pad-top font-big">
@@ -46,10 +75,7 @@
                 </div>
 
             </div>
-          
             
-            
-
 			<div class="row ">
 				<hr style="display: block;height: 1px;border: 1.5px solid darkgoldenrod;margin: 0.5em 0;padding: 0;">
 				<div class="col-lg-6 col-md-6 col-sm-6">
@@ -58,8 +84,9 @@
 						<option value="">Selecione a consulta</option>
 						<?php
 							$currentDate = date("Y-m-d");
+							$situacao = "Pendente";
 
-							$query = "SELECT idconsulta, title FROM consultas WHERE DATE(data_consulta) = '$currentDate'";
+							$query = "SELECT idconsulta, title FROM consultas WHERE DATE(data_consulta) = '$currentDate' AND situacao = '$situacao'";
 							$result = mysqli_query($conexao, $query);
 							
 							while ($row = mysqli_fetch_assoc($result)) {
@@ -117,9 +144,9 @@
         </div>
 		</form>
     </div>
-	
    
 </body>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/VentanaCentrada.js"></script>
@@ -191,20 +218,6 @@
 		});
 	});
 
-	// function mostrar_items(){
-	// 	var parametros={"action":"ajax"};
-	// 	$.ajax({
-	// 		url:'ajax/dados_procedimento.php',
-	// 		data: parametros,
-	// 		 beforeSend: function(objeto){
-	// 		 $('.items').html('Carregando...');
-	// 	  },
-	// 		success:function(data){
-	// 			$(".items").html(data).fadeIn('slow');
-	// 	}
-	// 	})
-	// }
-
 	$("#datos_presupuesto").submit(function(){
 
 		var consulta = $("#consulta").val();
@@ -219,9 +232,6 @@
 		}
 		 
 	 });
-
-	//  mostrar_items();
-		
 		
 </script>
 </html>

@@ -1,19 +1,21 @@
 <?php
 
-include '../conexao.php';
-$id = $id;
-$sql = "SELECT * FROM pacientes WHERE idpaciente =$id";
-$query = $conexao->query($sql);
+  include '../conexao.php';
 
-while ($dados = $query->fetch_array()) 
-{
-    $nome_paciente = $dados['nome_paciente'];
-    $sexo = $dados['sexo'];
-    $data_nascimento = $dados['data_nascimento'];
-    $cpf = $dados['cpf'];
-    $email = $dados['email'];
-    $telefone = $dados['telefone'];
-}
+  $id = $id;
+  $sql = "SELECT * FROM pacientes WHERE idpaciente =$id";
+  $query = $conexao->query($sql);
+
+  while ($dados = $query->fetch_array()) 
+  {
+      $nome_paciente = $dados['nome_paciente'];
+      $sexo = $dados['sexo'];
+      $data_nascimento = $dados['data_nascimento'];
+      $cpf = $dados['cpf'];
+      $email = $dados['email'];
+      $telefone = $dados['telefone'];
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,8 +49,10 @@ while ($dados = $query->fetch_array())
       </div>
       <br />
       <?php
-      date_default_timezone_set("America/Sao_Paulo");
-      date("Y-m-d");
+
+        date_default_timezone_set("America/Sao_Paulo");
+        date("Y-m-d");
+        
       ?>
       <label>Data de Nascimento</label>
       <input type="date" class="form-control" name="data_nascimento" value="<?php echo $data_nascimento; ?>" />

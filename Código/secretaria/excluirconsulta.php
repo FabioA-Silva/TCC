@@ -10,7 +10,7 @@
         ?> 
         <script>
             window.location.href = "http://localhost/TCC/secretaria/lista_consulta.php?filtro=mes";
-            alert("consulta Excluida com sucesso!");
+            alert("Consulta Excluída com sucesso!");
         </script>
         <?php
         exit(); 
@@ -20,7 +20,7 @@
         ?> 
         <script>
             window.location.href = "http://localhost/TCC/secretaria/lista_consulta.php?filtro=mes";
-            alert("Não foi posivel excluir a consulta!");
+            alert("Não foi posivel excluir a Consulta!");
         </script>
         <?php
     }

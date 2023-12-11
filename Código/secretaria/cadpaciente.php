@@ -1,4 +1,5 @@
 <?php
+
     include '../conexao.php';
 
     $nome_paciente = $_POST['nome_paciente'];
@@ -74,4 +75,5 @@
         <?php
         exit();
     }
+    
 ?>
