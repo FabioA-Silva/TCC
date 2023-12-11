@@ -7,18 +7,23 @@ Equipe:
 Esse é o TCC do curso Técnico de Desenvolvimento de Sistemas da turma de 2022 do SENAI CTM-Maringá.
 
 PARTICULARIDADES DO PROJETO:
--O banco de dados será configurado localmente por meio dos módulos de Apache e MySQL do XAMPP. Baixe a versão mais recente do XAMPP para Windows através do link https://www.apachefriends.org/pt_br/index.html e instale-o nos computadores que utilizarão o sistema.
--É necessário ter cadastrado ao menos 1 Procedimento Clínico, 1 Odontólogo, 1 Paciente para que o agendamento de consulta funcione corretamente.
--Ao criar uma nova conta e acesso de odontólogo o nome de usuário deve ser igual ao nome do odontólogo registrado no sistema.
+
+
+-É necessário ter cadastrado ao menos 1 Procedimento Clínico, 1 Odontólogo, 1 Paciente para que o agendamento de consulta funcione corretamente.  
+
+-Ao criar uma nova conta e acesso de Odontólogo o nome de usuário deve ser igual ao nome do odontólogo registrado no sistema.  
+
+-Nenhum dos calendários permite edição de dados, caso necessário modificar alguma consulta procure-a na Lista de Consultas e clique no botão esquerdo da coluna de Ações.  
 
 INSTRUÇÕES PARA EXECUTAR O PROJETO:
 
 -O banco de dados será configurado localmente por meio dos módulos de Apache e MySQL do XAMPP. Baixe a versão mais recente do XAMPP para Windows através do link https://www.apachefriends.org/pt_br/index.html e instale-o nos computadores que utilizarão o sistema.
--Ao criar uma nova conta e acesso de odontólogo o nome de usuário deve ser igual ao nome do odontólogo registrado no sistema.
+
 
 -Usuários já regitrados no sistema:
-Odontólogo ------- usuário: Adriana Helson      senha:123
-Secretária ------- usuário: Cleusa              senha:123
+
+Odontólogo ------- usuário: Adriana Helson      senha:123  
+Secretária ------- usuário: Cleusa              senha:123  
 Admin------------- usuário: admin               senha:123
 
 
@@ -26,5 +31,5 @@ Admin------------- usuário: admin               senha:123
 
 -Execute o XAMPP e marque as opções Apache e MySQL. Clique no botão Admin correspondente ao módulo do MySQL para abrir a página http://localhost/phpmyadmin/ no seu navegador principal. É possível acessar a página pelo navegador em si, sem a necessidade de clicar no botão mas ela só estará disponível se ambas as opções acima estiverem marcadas. 	Clique no botão Novo no menu à esquerda da página para abrir a tela de criação da nova database, o nome banco de dados precisa ser “tcc”, certifique-se que o nome está de acordo e clique em Criar. Uma nova database com nome tcc irá aparecer nesse menu, clique nela e vá em Importar, clique no botão “Escolher arquivo” e em seguida “Mostrar todos arquivos..”, vá na pasta em que os arquivos do sistema foram extraídos e procure por “tcc.sql”. Em seguida clique no botão “Importar” na parte inferior da página. Feito isso o banco de dados está instalado na máquinha.
 
--O sistema funciona enquanto o XAMPP estiver funcionando e com o Apache e MySQL selecionados então certique-se de que tudo está de acordo antes de acessar o site. 
+-O sistema funciona enquanto o XAMPP estiver funcionando e com o Apache e MySQL selecionados então certique-se de que tudo está de acordo antes de acessar o site.   
 -O link de acesso à página WEB será http://localhost/TCC/.
