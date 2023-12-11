@@ -1,7 +1,8 @@
 <?php
-require('../conexao.php');
-include('menuadministrador.php');
-$nome = $_SESSION['usuario'];
+
+  require('../conexao.php');
+  include('menuadministrador.php');
+  $nome = $_SESSION['usuario'];
 
 ?>
 <!doctype html>
@@ -31,7 +32,7 @@ $nome = $_SESSION['usuario'];
         'Friday' => 'Sexta-Feira',
         'Saturday' => 'Sábado'
       );
-      ?>
+    ?>
       <marquee style="font-size: 20px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;margin-top:15px"><?php echo "Hoje é " . $semana[$data] . "," . date(" d/m/Y H:i a") . "," . "  " . "Bem-vindo(a) $nome" . " " ?></marquee>
       <img src="../administrador/IMG/logosistema.png" class="img-fluid" alt="..." style="width: 600px; margin:auto; ">
      

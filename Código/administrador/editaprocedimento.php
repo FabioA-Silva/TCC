@@ -1,12 +1,15 @@
 <?php
-include '../conexao.php';
-$id = $id;
-$sql = " SELECT * FROM procedimento_clinico WHERE idprocedimento = $id ";
-$query = $conexao->query($sql);
-while ($dados = $query->fetch_array()) {
-    $nome_procedimento = $dados['nome_procedimento'];
-    $preco = $dados['preco'];
-}
+
+    include '../conexao.php';
+
+    $id = $id;
+    $sql = " SELECT * FROM procedimento_clinico WHERE idprocedimento = $id ";
+    $query = $conexao->query($sql);
+    while ($dados = $query->fetch_array()) {
+        $nome_procedimento = $dados['nome_procedimento'];
+        $preco = $dados['preco'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

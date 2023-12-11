@@ -1,14 +1,19 @@
 <?php
-require '../conexao.php';
-$id = $id;
-$sql= "SELECT * FROM usuarios WHERE idusuario =$id";
-$query =$conexao->query($sql);
-while($dados= $query->fetch_array()){
-    $nome_usuario =$dados['nome_usuario'];
-    $tipo_usuario =$dados['tipo_usuario'];
-   
-    $senha =$dados['senha'];
-}
+
+    require '../conexao.php';
+
+    $id = $id;
+    $sql= "SELECT * FROM usuarios WHERE idusuario =$id";
+    $query =$conexao->query($sql);
+
+    while($dados= $query->fetch_array()){
+
+        $nome_usuario =$dados['nome_usuario'];
+        $tipo_usuario =$dados['tipo_usuario'];
+    
+        $senha = $dados['senha'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

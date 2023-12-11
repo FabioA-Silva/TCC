@@ -26,6 +26,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="admin.css" media="screen" />
+    <link rel=icon href='../dente.png' sizes="50x50" type="image/png">
 
     <style>
 
@@ -72,7 +73,6 @@
 
     </style>
 
-    <title>Dental System Admin</title>
 </head>
 
 <body>
@@ -105,7 +105,7 @@
                         <li>
                             <a href="odontologos.php" class="nav-link px-sm-0 px-2">
                                 <i class="fa-solid fa-user-doctor" style="color:Darkgoldenrod"></i> <span
-                                    class="ms-1 d-none d-sm-inline text-white ">&nbsp;&nbsp;&nbsp;Odontológos</span></a>
+                                    class="ms-1 d-none d-sm-inline text-white ">&nbsp;&nbsp;&nbsp;Odontólogos</span></a>
                         </li>
                         <li>
                             <a href="procedimentos.php" class="nav-link px-sm-0 px-2">
@@ -115,12 +115,12 @@
                         <li>
                             <a href="calendario.php" class="nav-link px-sm-0 px-2">
                                 <i class="bi bi-calendar-week" style="color:Darkgoldenrod"></i><span
-                                    class="ms-1 d-none d-sm-inline text-white">&nbsp;Calendario </span></a>
+                                    class="ms-1 d-none d-sm-inline text-white">&nbsp;Calendário </span></a>
                         </li>
                         <li>
                             <a href="lista_pacientes.php" class="nav-link px-sm-0 px-2">
                                 <i class="fs-5 bi-people" style="color:Darkgoldenrod"></i><span
-                                    class="ms-1 d-none d-sm-inline text-white "> Lista Pacientes</span> </a>
+                                    class="ms-1 d-none d-sm-inline text-white "> Pacientes</span> </a>
                         </li>
                         <li>
                             <a href="lista_consulta.php" class="nav-link px-sm-0 px-2">

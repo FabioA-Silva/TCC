@@ -1,7 +1,7 @@
 <?php
-require('../conexao.php');
-require('menuadministrador.php');
 
+    require('../conexao.php');
+    require('menuadministrador.php');
 
 ?>
 <!doctype html>
@@ -15,7 +15,8 @@ require('menuadministrador.php');
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" type="text/css" href="admin.css">
-
+    <title>Dashboard</title>
+    
 </head>
 
 <body>
@@ -40,7 +41,6 @@ require('menuadministrador.php');
 
                                 <div class="p-2 border bg-danger text-white ">
                                     <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 448 512">
-                                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                         <style>
                                             svg {
                                                 fill: #ffffff
@@ -53,10 +53,10 @@ require('menuadministrador.php');
                                     <br><br>
                                     <?php
 
-                                    $sql = "SELECT COUNT(*) total  FROM odontologos";
-                                    $result = mysqli_query($conexao, $sql);
-                                    $fila = mysqli_fetch_assoc($result);
-                                    echo 'Número  total de registros: ' . $fila['total'];
+                                        $sql = "SELECT COUNT(*) total  FROM odontologos";
+                                        $result = mysqli_query($conexao, $sql);
+                                        $fila = mysqli_fetch_assoc($result);
+                                        echo 'Número  total de registros: ' . $fila['total'];
 
                                     ?>
                                 </div>
@@ -71,10 +71,10 @@ require('menuadministrador.php');
                                     <br><br>
                                     <?php
 
-                                    $sql = "SELECT COUNT(*) total  FROM pacientes";
-                                    $result = mysqli_query($conexao, $sql);
-                                    $fila = mysqli_fetch_assoc($result);
-                                    echo 'Número  total de registros: ' . $fila['total'];
+                                        $sql = "SELECT COUNT(*) total  FROM pacientes";
+                                        $result = mysqli_query($conexao, $sql);
+                                        $fila = mysqli_fetch_assoc($result);
+                                        echo 'Número  total de registros: ' . $fila['total'];
 
                                     ?>
                                 </div>
@@ -91,10 +91,10 @@ require('menuadministrador.php');
                                     <br><br>
                                     <?php
 
-                                    $sql = "SELECT COUNT(*) total  FROM consultas";
-                                    $result = mysqli_query($conexao, $sql);
-                                    $fila = mysqli_fetch_assoc($result);
-                                    echo 'Número  total de registros: ' . $fila['total'];
+                                        $sql = "SELECT COUNT(*) total  FROM consultas";
+                                        $result = mysqli_query($conexao, $sql);
+                                        $fila = mysqli_fetch_assoc($result);
+                                        echo 'Número  total de registros: ' . $fila['total'];
 
                                     ?>
                                 </div>
@@ -111,10 +111,10 @@ require('menuadministrador.php');
                                     <br><br>
                                     <?php
 
-                                    $sql = "SELECT COUNT(*) total  FROM usuarios";
-                                    $result = mysqli_query($conexao, $sql);
-                                    $fila = mysqli_fetch_assoc($result);
-                                    echo 'Número  total de registros: ' . $fila['total'];
+                                        $sql = "SELECT COUNT(*) total  FROM usuarios";
+                                        $result = mysqli_query($conexao, $sql);
+                                        $fila = mysqli_fetch_assoc($result);
+                                        echo 'Número  total de registros: ' . $fila['total'];
 
                                     ?>
                                 </div>
@@ -135,11 +135,11 @@ require('menuadministrador.php');
                                             &nbsp;&nbsp;Procedimentos Clínicos</b></h4><br />
                                         <?php
 
-                                        $sql = "SELECT COUNT(*) total FROM procedimento_clinico";
-                                        $result = mysqli_query($conexao, $sql);
-                                        $fila = mysqli_fetch_assoc($result);
+                                            $sql = "SELECT COUNT(*) total FROM procedimento_clinico";
+                                            $result = mysqli_query($conexao, $sql);
+                                            $fila = mysqli_fetch_assoc($result);
 
-                                        echo 'Número total de registros: ' . $fila['total'];
+                                            echo 'Número total de registros: ' . $fila['total'];
 
                                         ?>
                                     </div>
@@ -155,10 +155,10 @@ require('menuadministrador.php');
                                             &nbsp;&nbsp;Orçamentos</b></h4><br />
                                         <?php
 
-                                        $sql = "SELECT COUNT(*) total FROM orcamentos";
-                                        $result = mysqli_query($conexao, $sql);
-                                        $fila = mysqli_fetch_assoc($result);
-                                        echo 'Número total de registros: ' . $fila['total'];
+                                            $sql = "SELECT COUNT(*) total FROM orcamentos";
+                                            $result = mysqli_query($conexao, $sql);
+                                            $fila = mysqli_fetch_assoc($result);
+                                            echo 'Número total de registros: ' . $fila['total'];
 
                                         ?>
                                     </div>

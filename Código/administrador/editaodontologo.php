@@ -1,19 +1,20 @@
 <?php
 
-include '../conexao.php';
+    include '../conexao.php';
 
-$id = $id;
-$sql = "  SELECT * FROM odontologos WHERE idodontologo =$id ";
-$query = $conexao->query($sql);
-while ($dados = $query->fetch_array()) {
-    $nome_odontologo = $dados['nome_odontologo'];
-    $cpf = $dados['cpf'];
-    $email = $dados['email'];
-    $telefone = $dados['telefone'];
-    $horario_entrada = $dados['horario_entrada'];
-    $horario_saida = $dados['horario_saida'];
-    $color = $dados['color'];   
-}
+    $id = $id;
+    $sql = "  SELECT * FROM odontologos WHERE idodontologo =$id ";
+    $query = $conexao->query($sql);
+    while ($dados = $query->fetch_array()) {
+        $nome_odontologo = $dados['nome_odontologo'];
+        $cpf = $dados['cpf'];
+        $email = $dados['email'];
+        $telefone = $dados['telefone'];
+        $horario_entrada = $dados['horario_entrada'];
+        $horario_saida = $dados['horario_saida'];
+        $color = $dados['color'];   
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

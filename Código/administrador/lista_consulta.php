@@ -36,10 +36,12 @@
                             <div class="d-flex">
                                 <select name="filtro" id="filtrar" class="form-select">
                                     <?php
-                                    foreach ($options as $value => $label) {
-                                        $selected = ($filtro === $value) ? 'selected' : '';
-                                        echo "<option value='$value' $selected>$label</option>";
-                                    }
+
+                                        foreach ($options as $value => $label) {
+                                            $selected = ($filtro === $value) ? 'selected' : '';
+                                            echo "<option value='$value' $selected>$label</option>";
+                                        }
+
                                     ?>
                                 </select>
                                 <button type="submit" class="btn btn-secondary ms-2">Filtrar</button>
@@ -63,68 +65,70 @@
                             </thead>
                             <tbody>
                                 <?php
-                                include '../conexao.php';
 
-                                $sql = "SELECT * FROM consultas C 
-                                        INNER JOIN pacientes p ON p.idpaciente = C.idpaciente
-                                        INNER JOIN procedimento_clinico pc ON pc.idprocedimento = C.idprocedimento
-                                        INNER JOIN odontologos o ON C.idodontologo = o.idodontologo";
+                                    include '../conexao.php';
 
-                                if ($filtro === "ano") {
-                                    $ano = date("Y"); // Obtém o ano atual
-                                    $sql .= " WHERE YEAR(data_consulta) = $ano";
-                                } elseif ($filtro === "mes") {
-                                    $mes = date("m"); // Obtém o mês atual
-                                    $sql .= " WHERE MONTH(data_consulta) = $mes";
-                                } elseif ($filtro === "todas") {
-                                    $sql .= "";
-                                } else {
-                                    $data_atual = date("d/m/Y"); // Obtém a data atual no formato desejado
-                                    $sql .= " WHERE DATE_FORMAT(data_consulta, '%d/%m/%Y') = '$data_atual'";
-                                }
+                                    $sql = "SELECT * FROM consultas C 
+                                            INNER JOIN pacientes p ON p.idpaciente = C.idpaciente
+                                            INNER JOIN procedimento_clinico pc ON pc.idprocedimento = C.idprocedimento
+                                            INNER JOIN odontologos o ON C.idodontologo = o.idodontologo";
 
-                                $sql .= " ORDER BY data_consulta DESC";
-
-                                $pesquisa = mysqli_query($conexao, $sql);
-
-                                $row = mysqli_num_rows($pesquisa);
-
-                                if ($row > 0) {
-                                    while ($registro = $pesquisa->fetch_array()) {
-
-                                        $id = $registro['idconsulta'];
-                                        $data_c = $registro["data_consulta"];
-                                        $data_c = date("d/m/Y", strtotime($data_c));
-                                        echo '<tr>';
-                                        echo '<td>' . $registro['nome_paciente'] . '</td>';
-                                        echo '<td>' . $registro['nome_procedimento'] . '</td>';
-                                        echo '<td>' . $registro['nome_odontologo'] . '</td>';
-                                        echo '<td>' . $data_c . '</td>';
-                                        echo '<td>' . $registro['hora'] . '</td>';
-                                        echo '<td>' . $registro['descripcao'] . '</td>';
-                                        echo '<td>' . $registro['situacao'] . '</td>';
-                                        echo '<td>' . $registro['title'] . '</td>';
-
-                                        echo '<td> <a href="editaconsulta.php?idconsulta=' . $id . '" data-bs-toggle="modal" data-id="' . $id . '" data-bs-target="#exampleModal1' . $id . '"> <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i> </button> </a>  <a href="excluirconsulta.php ?idconsulta=' . $id . '"> <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> </button></td>';
-                                        echo '</tr>';
-                                        echo  '<div class="modal fade" id="exampleModal1' . $id . '" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">';
-                                        echo  '<div class="modal-dialog modal-dialog-centered">';
-                                        echo '<div class="modal-content">';
-                                        echo    '<div class="modal-header bg-dark text-white ">';
-                                        echo   '<h5 class="modal-title"  id="exampleModalLabel">Editar Consulta</h5>';
-                                        echo  '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
-                                        echo  '</div>';
-                                        echo '<div class="modal-body">';
-                                        include 'editaconsulta.php';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '</div>';
-                                        echo '</div>';
-
+                                    if ($filtro === "ano") {
+                                        $ano = date("Y"); // Obtém o ano atual
+                                        $sql .= " WHERE YEAR(data_consulta) = $ano";
+                                    } elseif ($filtro === "mes") {
+                                        $mes = date("m"); // Obtém o mês atual
+                                        $sql .= " WHERE MONTH(data_consulta) = $mes";
+                                    } elseif ($filtro === "todas") {
+                                        $sql .= "";
+                                    } else {
+                                        $data_atual = date("d/m/Y"); // Obtém a data atual no formato desejado
+                                        $sql .= " WHERE DATE_FORMAT(data_consulta, '%d/%m/%Y') = '$data_atual'";
                                     }
-                                } else {
-                                    echo "Não há consultas cadastradas!";
-                                }
+
+                                    $sql .= " ORDER BY data_consulta DESC";
+
+                                    $pesquisa = mysqli_query($conexao, $sql);
+
+                                    $row = mysqli_num_rows($pesquisa);
+
+                                    if ($row > 0) {
+                                        while ($registro = $pesquisa->fetch_array()) {
+
+                                            $id = $registro['idconsulta'];
+                                            $data_c = $registro["data_consulta"];
+                                            $data_c = date("d/m/Y", strtotime($data_c));
+                                            echo '<tr>';
+                                            echo '<td>' . $registro['nome_paciente'] . '</td>';
+                                            echo '<td>' . $registro['nome_procedimento'] . '</td>';
+                                            echo '<td>' . $registro['nome_odontologo'] . '</td>';
+                                            echo '<td>' . $data_c . '</td>';
+                                            echo '<td>' . $registro['hora'] . '</td>';
+                                            echo '<td>' . $registro['descripcao'] . '</td>';
+                                            echo '<td>' . $registro['situacao'] . '</td>';
+                                            echo '<td>' . $registro['title'] . '</td>';
+
+                                            echo '<td> <a href="editaconsulta.php?idconsulta=' . $id . '" data-bs-toggle="modal" data-id="' . $id . '" data-bs-target="#exampleModal1' . $id . '"> <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i> </button> </a>  <a href="excluirconsulta.php ?idconsulta=' . $id . '"> <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> </button></td>';
+                                            echo '</tr>';
+                                            echo  '<div class="modal fade" id="exampleModal1' . $id . '" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">';
+                                            echo  '<div class="modal-dialog modal-dialog-centered">';
+                                            echo '<div class="modal-content">';
+                                            echo    '<div class="modal-header bg-dark text-white ">';
+                                            echo   '<h5 class="modal-title"  id="exampleModalLabel">Editar Consulta</h5>';
+                                            echo  '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+                                            echo  '</div>';
+                                            echo '<div class="modal-body">';
+                                            include 'editaconsulta.php';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '</div>';
+
+                                        }
+                                    } else {
+                                        echo "Não há consultas cadastradas!";
+                                    }
+                                    
                                 ?>
                             </tbody>
                         </table>

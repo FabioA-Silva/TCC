@@ -1,20 +1,18 @@
 <?php
-require('../conexao.php');
-include('menuadministrador.php')
+
+    require('../conexao.php');
+    include('menuadministrador.php')
+
 ?>
 
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QdgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
     <title>Usuários</title>
 </head>
 
@@ -164,15 +162,15 @@ include('menuadministrador.php')
                     </form>
 
                     <script>
-                    function showAdditionalFields(selectElement) {
-                        const selectedValue = selectElement.value;
-                        const dentistaFields = document.getElementById('dentistaFields');
-                        if (selectedValue === 'odontologo') {
-                            dentistaFields.style.display = 'block';
-                        } else {
-                            dentistaFields.style.display = 'none';
+                        function showAdditionalFields(selectElement) {
+                            const selectedValue = selectElement.value;
+                            const dentistaFields = document.getElementById('dentistaFields');
+                            if (selectedValue === 'odontologo') {
+                                dentistaFields.style.display = 'block';
+                            } else {
+                                dentistaFields.style.display = 'none';
+                            }
                         }
-                    }
                     </script>
                 </div>
                 <div class="modal-footer">
@@ -197,16 +195,14 @@ include('menuadministrador.php')
 
                 <script>
                 function openDeleteModal(id) {
-                    // Set the href of the "Sim" button in the delete confirmation modal
                     var deleteLink = document.getElementById('confirmDeleteLink');
                     deleteLink.href = 'excluirusuario.php?idusuario=' + id;
 
-                    // Open the delete confirmation modal
                     $('#modalExclusao').modal('show');
                 }
 
                 function closeConfirmDeleteModal() {
-                    $('#modalExclusao').modal('hide'); // Redireciona para a página de usuários
+                    $('#modalExclusao').modal('hide');
                 }
                 </script>
 

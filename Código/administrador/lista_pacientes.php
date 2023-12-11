@@ -59,6 +59,7 @@
                             </thead>
                             <tbody>
                             <?php
+
                                 include '../conexao.php';
 
                                 function calcularIdade($dataNascimento)
@@ -103,7 +104,7 @@
                                             echo '<td>' . $registro['cpf'] . '</td>';
                                             echo '<td>' . $registro['email'] . '</td>';
                                             echo '<td>' . $registro['telefone'] . '</td>';
-                                            echo '<td> <a href="editapaciente.php?idpaciente=' . $id . '" data-bs-toggle="modal" data-id="' . $id . '" data-bs-target="#exampleModal1' . $id . '"> <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i> </button> </a>  <a href="excluirpaciente.php ?idpaciente=' . $id . '"> <button type="button" class="btn btn-danger"><i class="bi bi-trash3-fill"></i> </button></td>';
+                                            echo '<td> <a href="editapaciente.php?idpaciente=' . $id . '" data-bs-toggle="modal" data-id="' . $id . '" data-bs-target="#exampleModal1' . $id . '"> <button type="button" class="btn btn-dark"><i class="bi bi-pencil-square"></i> </button> </a> </td>';
                                             echo '</tr>';
                                             echo  '<div class="modal fade" id="exampleModal1' . $id . '" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">';
                                             echo  '<div class="modal-dialog modal-dialog-centered">';
@@ -126,6 +127,7 @@
                                         echo "Não há pacientes cadastrados!";
                                     }
                                 }
+
                             ?>
 
                             </tbody>
@@ -170,8 +172,10 @@
                             </div>
                             <br />
                             <?php
-                            date_default_timezone_set("America/Sao_Paulo");
-                            date("Y/m/d");
+
+                                date_default_timezone_set("America/Sao_Paulo");
+                                date("Y/m/d");
+                                
                             ?>
                             <label>Data de Nascimento</label>
                             <input type="date" class="form-control" name="data_nascimento"

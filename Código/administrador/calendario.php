@@ -1,14 +1,15 @@
 <?php
-include('../conexao.php');
-include('menuadministrador.php');
+
+    include('../conexao.php');
+    include('menuadministrador.php');
+
 ?>
 
 <!doctype html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <title>Calendário</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -48,13 +49,15 @@ include('menuadministrador.php');
                                                     aria-label=".form-select-sm example">
                                                     <option selected>Selecione o Nome do Paciente</option>
                                                     <?php
-                                                    $mysqli = new mysqli('localhost', 'root', '', 'tcc');
+                                                    
+                                                        $mysqli = new mysqli('localhost', 'root', '', 'tcc');
 
-                                                    $query = $mysqli->query("SELECT * FROM pacientes");
+                                                        $query = $mysqli->query("SELECT * FROM pacientes");
 
-                                                    while ($paciente = mysqli_fetch_array($query)) {
-                                                        echo '<option value="' . $paciente['idpaciente'] . '">' . $paciente['nome_paciente'] . ' </option>';
-                                                    }
+                                                        while ($paciente = mysqli_fetch_array($query)) {
+                                                            echo '<option value="' . $paciente['idpaciente'] . '">' . $paciente['nome_paciente'] . ' </option>';
+                                                        }
+
                                                     ?>
                                                 </select>
                                             </div>
@@ -65,13 +68,15 @@ include('menuadministrador.php');
                                                 aria-label=".form-select-sm example">
                                                 <option selected>Selecione o Procedimento a Realizar</option>
                                                 <?php
-                                                $mysqli = new mysqli('localhost', 'root', '', 'tcc');
 
-                                                $query = $mysqli->query("SELECT * FROM procedimento_clinico");
+                                                    $mysqli = new mysqli('localhost', 'root', '', 'tcc');
 
-                                                while ($procedimento = mysqli_fetch_array($query)) {
-                                                    echo '<option value="' . $procedimento['idprocedimento'] . '">' . $procedimento['nome_procedimento'] . '</option>';
-                                                }
+                                                    $query = $mysqli->query("SELECT * FROM procedimento_clinico");
+
+                                                    while ($procedimento = mysqli_fetch_array($query)) {
+                                                        echo '<option value="' . $procedimento['idprocedimento'] . '">' . $procedimento['nome_procedimento'] . '</option>';
+                                                    }
+
                                                 ?>
                                             </select>
                                             <br />
@@ -95,9 +100,9 @@ include('menuadministrador.php');
 
                                             <?php
 
-                                            date_default_timezone_set("America/Sao_Paulo");
-                                            $today = date("Y-m-d");
-                                            $hora = date('h:i:s A');
+                                                date_default_timezone_set("America/Sao_Paulo");
+                                                $today = date("Y-m-d");
+                                                $hora = date('h:i:s A');
 
                                             ?>
 
@@ -160,13 +165,13 @@ include('menuadministrador.php');
                                                     aria-label=".form-select-sm example">
                                                     <option selected>Selecione o Nome do Paciente</option>
                                                     <?php
-                                                    $mysqli = new mysqli('localhost', 'root', '', 'tcc');
+                                                        $mysqli = new mysqli('localhost', 'root', '', 'tcc');
 
-                                                    $query = $mysqli->query("SELECT * FROM pacientes");
+                                                        $query = $mysqli->query("SELECT * FROM pacientes");
 
-                                                    while ($paciente = mysqli_fetch_array($query)) {
-                                                        echo '<option value="' . $paciente['idpaciente'] . '">' . $paciente['nome_paciente'] . ' </option>';
-                                                    }
+                                                        while ($paciente = mysqli_fetch_array($query)) {
+                                                            echo '<option value="' . $paciente['idpaciente'] . '">' . $paciente['nome_paciente'] . ' </option>';
+                                                        }
                                                     ?>
                                                 </select>
 
@@ -179,13 +184,13 @@ include('menuadministrador.php');
                                                 aria-label=".form-select-sm example">
                                                 <option selected>Selecione o Procedimento a Realizar</option>
                                                 <?php
-                                                $mysqli = new mysqli('localhost', 'root', '', 'tcc');
+                                                    $mysqli = new mysqli('localhost', 'root', '', 'tcc');
 
-                                                $query = $mysqli->query("SELECT * FROM procedimento_clinico");
+                                                    $query = $mysqli->query("SELECT * FROM procedimento_clinico");
 
-                                                while ($procedimento = mysqli_fetch_array($query)) {
-                                                    echo '<option value="' . $procedimento['idprocedimento'] . '">' . $procedimento['nome_procedimento'] . '</option>';
-                                                }
+                                                    while ($procedimento = mysqli_fetch_array($query)) {
+                                                        echo '<option value="' . $procedimento['idprocedimento'] . '">' . $procedimento['nome_procedimento'] . '</option>';
+                                                    }
                                                 ?>
                                             </select>
                                             <br />
@@ -222,14 +227,14 @@ include('menuadministrador.php');
                                             <select class="form-select form-select-sm" name="hora" id="hora_semana" required>
                                                 <option value="" disabled selected>Selecione a Hora</option>
                                                 <?php
-                                                for ($i = 0; $i < 24; $i++) {
-                                                    for ($j = 0; $j < 60; $j += 30) {
-                                                        $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
-                                                        $minute = str_pad($j, 2, '0', STR_PAD_LEFT);
-                                                        $time = "$hour:$minute";
-                                                        echo "<option value='$time'>$time</option>";
+                                                    for ($i = 0; $i < 24; $i++) {
+                                                        for ($j = 0; $j < 60; $j += 30) {
+                                                            $hour = str_pad($i, 2, '0', STR_PAD_LEFT);
+                                                            $minute = str_pad($j, 2, '0', STR_PAD_LEFT);
+                                                            $time = "$hour:$minute";
+                                                            echo "<option value='$time'>$time</option>";
+                                                        }
                                                     }
-                                                }
                                                 ?>
                                             </select>
                                             <br />
@@ -360,107 +365,107 @@ include('menuadministrador.php');
                         </div>
 
                         <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            var calendarEl = document.getElementById('calendar');
-                            var calendar = new FullCalendar.Calendar(calendarEl, {
-                                initialView: 'dayGridMonth',
-                                locale: 'pt',
-                                headerToolbar: {
-                                    left: 'prev,next,today',
-                                    center: 'title',
-                                    right: 'dayGridMonth,timeGridWeek,timeGridDay',
-                                },
-                                selectable: true,
-
-                                dateClick: function(info) {
-                                    var currentView = calendar.view.type;
-                                    handleDateSelection(info.date, currentView);
-                                },
-
-                                eventSources: [{
-                                    url: 'listarconsultas.php',
-                                    method: 'POST',
-                                    extraParams: {},
-                                    failure: function() {
-                                        alert('Houve um erro ao carregar os eventos!');
+                            document.addEventListener('DOMContentLoaded', function() {
+                                var calendarEl = document.getElementById('calendar');
+                                var calendar = new FullCalendar.Calendar(calendarEl, {
+                                    initialView: 'dayGridMonth',
+                                    locale: 'pt',
+                                    headerToolbar: {
+                                        left: 'prev,next,today',
+                                        center: 'title',
+                                        right: 'dayGridMonth,timeGridWeek,timeGridDay',
                                     },
-                                }],
-                                eventClick: function(info) {
-                                    $('#modalMes').modal('hide');
-                                    $('#modalSemana').modal('hide');
+                                    selectable: true,
 
-                                    // Encontre o evento correspondente no array de eventos
-                                    var evento = <?php echo json_encode($eventos); ?>.find(function(
-                                        e) {
-                                        return e.idconsulta === info.event.id;
-                                    });
+                                    dateClick: function(info) {
+                                        var currentView = calendar.view.type;
+                                        handleDateSelection(info.date, currentView);
+                                    },
 
-                                    // Mostrar os dados do evento no modal
-                                    document.getElementById("visualizar_idpaciente").innerText =
-                                        evento.nome_paciente;
-                                    document.getElementById("visualizar_idprocedimento").innerText =
-                                        evento.procedimento_clinico;
-                                    document.getElementById("visualizar_idodontologo").innerText =
-                                        evento.nome_odontologo;
-                                    document.getElementById("visualizar_start").innerText = info
-                                        .event.start.toLocaleString();
-                                    document.getElementById("visualizar_descripcao").innerText =
-                                        evento.descricao;
-                                    document.getElementById("visualizar_situacao").innerText =
-                                        evento.situacao;
+                                    eventSources: [{
+                                        url: 'listarconsultas.php',
+                                        method: 'POST',
+                                        extraParams: {},
+                                        failure: function() {
+                                            alert('Houve um erro ao carregar os eventos!');
+                                        },
+                                    }],
+                                    eventClick: function(info) {
+                                        $('#modalMes').modal('hide');
+                                        $('#modalSemana').modal('hide');
 
-                                    $('#modalInfo').modal('show');
-                                },
-                            });
+                                        // Encontre o evento correspondente no array de eventos
+                                        var evento = <?php echo json_encode($eventos); ?>.find(function(
+                                            e) {
+                                            return e.idconsulta === info.event.id;
+                                        });
 
-                            calendar.render();
+                                        // Mostrar os dados do evento no modal
+                                        document.getElementById("visualizar_idpaciente").innerText =
+                                            evento.nome_paciente;
+                                        document.getElementById("visualizar_idprocedimento").innerText =
+                                            evento.procedimento_clinico;
+                                        document.getElementById("visualizar_idodontologo").innerText =
+                                            evento.nome_odontologo;
+                                        document.getElementById("visualizar_start").innerText = info
+                                            .event.start.toLocaleString();
+                                        document.getElementById("visualizar_descripcao").innerText =
+                                            evento.descricao;
+                                        document.getElementById("visualizar_situacao").innerText =
+                                            evento.situacao;
 
-                            function handleDateSelection(date, currentView) {
-                                var selectedDate = date;
-                                var currentDate = new Date();
-                                currentDate.setHours(0, 0, 0, 0);
+                                        $('#modalInfo').modal('show');
+                                    },
+                                });
 
-                                if (selectedDate >= currentDate) {
-                                    if (currentView === 'dayGridMonth') {
-                                        var inputDate = document.getElementById("data_consulta_mes");
-                                        var dateStr = formatDate(selectedDate);
-                                        inputDate.min = dateStr;
-                                        inputDate.max = dateStr;
-                                        inputDate.value = dateStr;
-                                        $('#modalMes').modal('show');
-                                    } else if (currentView === 'timeGridWeek' || currentView ===
-                                        'timeGridDay') {
-                                        var inputDate = document.getElementById("data_consulta_semana");
-                                        var inputTime = document.getElementById("hora_semana");
-                                        var dateStr = formatDate(selectedDate);
-                                        var timeStr = formatTime(selectedDate);
-                                        inputDate.min = dateStr;
-                                        inputDate.max = dateStr;
-                                        inputDate.value = dateStr;
-                                        inputTime.value = timeStr;
-                                        inputTime.setAttribute('readonly', true);
-                                        $('#modalSemana').modal('show');
+                                calendar.render();
+
+                                function handleDateSelection(date, currentView) {
+                                    var selectedDate = date;
+                                    var currentDate = new Date();
+                                    currentDate.setHours(0, 0, 0, 0);
+
+                                    if (selectedDate >= currentDate) {
+                                        if (currentView === 'dayGridMonth') {
+                                            var inputDate = document.getElementById("data_consulta_mes");
+                                            var dateStr = formatDate(selectedDate);
+                                            inputDate.min = dateStr;
+                                            inputDate.max = dateStr;
+                                            inputDate.value = dateStr;
+                                            $('#modalMes').modal('show');
+                                        } else if (currentView === 'timeGridWeek' || currentView ===
+                                            'timeGridDay') {
+                                            var inputDate = document.getElementById("data_consulta_semana");
+                                            var inputTime = document.getElementById("hora_semana");
+                                            var dateStr = formatDate(selectedDate);
+                                            var timeStr = formatTime(selectedDate);
+                                            inputDate.min = dateStr;
+                                            inputDate.max = dateStr;
+                                            inputDate.value = dateStr;
+                                            inputTime.value = timeStr;
+                                            inputTime.setAttribute('readonly', true);
+                                            $('#modalSemana').modal('show');
+                                        }
+                                    } else {
+                                        alert(
+                                            'Você só pode agendar consultas para datas iguais ou posteriores à data atual.'
+                                        );
                                     }
-                                } else {
-                                    alert(
-                                        'Você só pode agendar consultas para datas iguais ou posteriores à data atual.'
-                                    );
                                 }
-                            }
 
-                            function formatDate(date) {
-                                var year = date.getFullYear();
-                                var month = (date.getMonth() + 1).toString().padStart(2, '0');
-                                var day = date.getDate().toString().padStart(2, '0');
-                                return year + '-' + month + '-' + day;
-                            }
+                                function formatDate(date) {
+                                    var year = date.getFullYear();
+                                    var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                                    var day = date.getDate().toString().padStart(2, '0');
+                                    return year + '-' + month + '-' + day;
+                                }
 
-                            function formatTime(date) {
-                                var hours = date.getHours().toString().padStart(2, '0');
-                                var minutes = date.getMinutes().toString().padStart(2, '0');
-                                return hours + ':' + minutes;
-                            }
-                        });
+                                function formatTime(date) {
+                                    var hours = date.getHours().toString().padStart(2, '0');
+                                    var minutes = date.getMinutes().toString().padStart(2, '0');
+                                    return hours + ':' + minutes;
+                                }
+                            });
                         </script>
 
                     </div>
