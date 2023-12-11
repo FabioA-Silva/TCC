@@ -52,7 +52,7 @@
                     ?>
                     <script>
                         window.location.href = "lista_consulta.php";
-                        alert("Cadastro da consulta realizado com sucesso!");
+                        alert("Cadastro da Consulta realizado com sucesso!");
                     </script>
                     <?php
                     exit();
