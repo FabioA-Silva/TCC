@@ -4,8 +4,6 @@ Equipe:
 - Fábio Augusto Gomes Barbosa da Silva
 - Norbis Yanina Arvelo Martinez
   
-![Logo do Projeto](Foto_Readme/logosistema.png)
-
 Esse é o TCC do curso Técnico de Desenvolvimento de Sistemas da turma de 2022 do SENAI CTM-Maringá.
 
 # Particularidades do Projeto:
