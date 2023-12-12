@@ -3,6 +3,8 @@ Equipe:
 - Gabriel Balancieri Perassoli  
 - Fábio Augusto Gomes Barbosa da Silva
 - Norbis Yanina Arvelo Martinez
+  
+<img src="Foto_Readme/logosistema.png" alt="Logo do Projeto">
 
 Esse é o TCC do curso Técnico de Desenvolvimento de Sistemas da turma de 2022 do SENAI CTM-Maringá.
 
